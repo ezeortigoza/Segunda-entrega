@@ -53,21 +53,18 @@
            {dia: "viernes", rutina: "gemelos" , ejerciciosNro: 5},
            {dia: "sabado", rutina: "espalda" , ejerciciosNro: 6 },
            {dia: "domingo", rutina: "full body" , ejerciciosNro: 7 }
-
+           
         ]
-      
-        //almacenar rutinas por rutina
-        const guardarLocal = (clave, valor) => {localStorage.setItem(clave,valor)};
-
+        const  rutinasString = (clave , valor) => {localStorage.setItem(clave,valor)};
         for (const rutina of rutinas){
-            guardarLocal (rutina.dia, JSON.stringify (rutinas));
+            rutinasString (rutina.dia, JSON.stringify (rutinas));
+
         }
-
-        //almacenar array completo 
-        guardarLocal ("listaRutinas" , JSON.stringify(rutinas));
-
-
+       
+        
     })
+    
+    
     let nombre = document.querySelector("#nombre");
     let ingreso = [];
     nombre.addEventListener('submit', agregarNombres);
@@ -77,40 +74,35 @@
         const ingresar = document.querySelector("#ingresar").value;
         console.log(ingresa);
         console.log(ingresar);
-        
+        localStorage.setItem(ingresar , ingresa );
+
+
         if (ingresa === "" && ingresar === ""){
             alert("No se admiten vacios");
             
+        }else{
+
+         nombre.reset();
+
         }
          
-        nombre.reset();
-    }
+    }   
 
-     
-
-    
-
-       
- 
-     /*  document.querySelector("#go").addEventListener("click", ()=>{
-      let numero = querySelector("#numero");
+        document.querySelector("#go").addEventListener("click", ()=>{
+        let numero = +document.querySelector("#numero").value;
         if(numero != 0 && numero <=7){
-            
            
-
-
-
-
-
-
-
-        } */
+           
+        
+        }else{
+            alert("Solo se admite numeros del 1 al 7");
+        }
 
       })
 
 
 
-//})
+})
 
 
 
