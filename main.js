@@ -4,6 +4,7 @@ document.querySelector("#ingreso").addEventListener("click", () => {
   if (divLogin != formEntrar) {
     document.querySelector("#ingreso").style.display = "block";
     document.querySelector("#ingreso").style.display = "none";
+    document.querySelector("#registrarse").style.display = "none";
     document.querySelector("#titulo").style.display = "none";
 
     document.querySelector("#entrar").style.display = "none";
@@ -12,6 +13,52 @@ document.querySelector("#ingreso").addEventListener("click", () => {
     localStorage.setItem("sesion", "0");
   }
 });
+
+let registrarse = document.querySelector("#registrarse").addEventListener ("click" , () =>{
+      
+  let formularioEntrar = document.querySelector("#registrado");
+  let login = document.querySelector("#login");
+  if (formularioEntrar != login){
+    document.querySelector("#titulo3").style.display = "block";
+    document.querySelector("#usuario").style.display = "block";
+    document.querySelector("#clave").style.display = "block";
+    document.querySelector("#registrado").style.display = "block";
+    document.querySelector("#ingreso").style.display = "none";
+    document.querySelector("#registrarse").style.display = "none";
+    document.querySelector("#titulo").style.display = "none";
+  }
+
+
+
+})
+/* const form = document.querySelector("#registrado");
+
+let user = [];
+let password = [];
+
+let users = JSON.stringify(password);
+localStorage.setItem("user",users);
+
+let contras = JSON.stringify(password);
+localStorage.setItem("contra",contras);
+
+document.querySelector("#sosParte").addEventListener("submit", (event) =>{
+  event.preventDefault();
+  let nombres = document.querySelector("#usuario").value;
+  let contraseñas = document.querySelector("#password").value;
+
+  user.push(nombres);
+  password.push(contraseñas);
+
+  
+  let usuarioDevuelta = JSON.parse(localStorage.getItem("user"));
+  let contraDevuetla = JSON.parse(localStorage.getItem("contra"));
+  for (let i = 0; i <usuarioDevuelta.find; i++){
+      
+  }
+ 
+}) */
+
 
 let ingresar = document.querySelector(".ingresar").addEventListener("click", () => {
     let divLogin = document.querySelector("#login");
@@ -38,7 +85,7 @@ let ingresar = document.querySelector(".ingresar").addEventListener("click", () 
        
        Toast.fire({
          icon: 'success',
-         title: 'Signed in successfully'
+         title: 'Has ingresado con exito'
        })
     } else {
       Swal.fire({
@@ -88,7 +135,37 @@ let ingresar = document.querySelector(".ingresar").addEventListener("click", () 
       ]
          let omnivoroJson = JSON.stringify(omnivoro);
          localStorage.setItem("Omnivoro", omnivoroJson);
+
+         const vegetariano = [
+            
+          { dia: "Lunes", desayuno: "Huevo revuelto" , almuerzo: "Lentejas"  , cena: "Ensalada con milanesa de soja"},
+          { dia: "Martes", desayuno:"Yogurt con avena" , almuerzo: "Hamburguesa de quinoa" , cena: "Brocoli con milanesa de soja"},
+          { dia: "Miercoles", desayuno:"Tostadas con palta" , almuerzo:"Omelette con arroz "  , cena: "Hamburguesa con tufu"},
+          { dia: "Jueves", desayuno:"Omelette y jugo de naranja" , almuerzo: "Tarta de espinaca" , cena: "Tarta de zapallito"},
+          { dia: "Viernes", desayuno: "Yogurt con avena" , almuerzo: "Hamburguesas de garbanzos" , cena: "Ensalada con milanesa de soja"},
+          { dia: "Sabado", desayuno: "Huevo revuelto", almuerzo: "Milanesa de berenjena"  , cena:"Brocoli con milanesa de soja"},
+          { dia: "Domingo", desayuno:"Yogurt con avena" , almuerzo: "Tarta de espinaca" , cena:"Ensalada"},
+          
+       ]
+       let vegetarianoJson = JSON.stringify(vegetariano);
+       localStorage.setItem("vegetariano", vegetarianoJson);
+
+       const vegano = [
+            
+        { dia: "Lunes", desayuno: "Frutos secos mas jugo de naranja" , almuerzo: "Lentejas"  , cena: "Ensalada con milanesa de soja"},
+        { dia: "Martes", desayuno:"Jugo de naranja y avena" , almuerzo: "Hamburguesa de quinoa" , cena: "Brocoli con milanesa de soja"},
+        { dia: "Miercoles", desayuno:"Tostadas con palta" , almuerzo:"Arroz y lentejas "  , cena: "Hamburguesa con tufu"},
+        { dia: "Jueves", desayuno:"Tostadas con palta y banana" , almuerzo: "Tarta de espinaca" , cena: "Tarta de zapallito"},
+        { dia: "Viernes", desayuno: "Jugo de soja con avena" , almuerzo: "Hamburguesas de garbanzos" , cena: "Ensalada con milanesa de soja"},
+        { dia: "Sabado", desayuno: "Jugo de soja con avena", almuerzo: "Milanesa de berenjena"  , cena:"Brocoli con milanesa de soja"},
+        { dia: "Domingo", desayuno:"Tostadas con palta" , almuerzo: "Tarta de espinaca" , cena:"Ensalada"},
+        
+     ]
+     let veganoJson = JSON.stringify(vegano);
+     localStorage.setItem("vegano", veganoJson);
+
     });
+
 
     let nombre = document.querySelector("#nombre");
     nombre.addEventListener("submit", agregarNombres);
@@ -145,10 +222,38 @@ let ingresar = document.querySelector(".ingresar").addEventListener("click", () 
         miLista.replaceChildren();
         miLista.style.color = "blue";
         let omnivoroDevuelta = JSON.parse(localStorage.getItem("Omnivoro"));
-        for (let i = 0; i <omnivoroDevuelta.lenght; i++){
+        for (let i = 0; i <omnivoroDevuelta.length ; i++){
            const subomnivoro = document.createElement("li"); 
            subomnivoro.textContent = `${omnivoroDevuelta[i].dia} - ${omnivoroDevuelta[i].desayuno} - ${omnivoroDevuelta[i].almuerzo} - ${omnivoroDevuelta[i].cena}`;
            miLista.appendChild(subomnivoro);
+        }
+         
+   
+      })
+      document.querySelector("#vegetariano").addEventListener ("click",() =>{
+
+        let miLista = document.querySelector("#listaAlimentos");
+        miLista.replaceChildren();
+        miLista.style.color = "blue";
+        let vegetarianoDevuelta = JSON.parse(localStorage.getItem("vegetariano"));
+        for (let i = 0; i <vegetarianoDevuelta.length ; i++){
+           const subVegetariano = document.createElement("li"); 
+           subVegetariano.textContent = `${vegetarianoDevuelta[i].dia} - ${vegetarianoDevuelta[i].desayuno} - ${vegetarianoDevuelta[i].almuerzo} - ${vegetarianoDevuelta[i].cena}`;
+           miLista.appendChild(subVegetariano);
+        }
+         
+   
+      })
+      document.querySelector("#vegano").addEventListener ("click",() =>{
+
+        let miLista = document.querySelector("#listaAlimentos");
+        miLista.replaceChildren();
+        miLista.style.color = "blue";
+        let veganoDevuelta = JSON.parse(localStorage.getItem("vegano"));
+        for (let i = 0; i <veganoDevuelta.length ; i++){
+           const subVegano = document.createElement("li"); 
+           subVegano.textContent = `${veganoDevuelta[i].dia} - ${veganoDevuelta[i].desayuno} - ${veganoDevuelta[i].almuerzo} - ${veganoDevuelta[i].cena}`;
+           miLista.appendChild(subVegano);
         }
          
    
