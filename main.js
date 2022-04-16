@@ -31,34 +31,44 @@ let registrarse = document.querySelector("#registrarse").addEventListener ("clic
 
 
 })
-/* const form = document.querySelector("#registrado");
 
-let user = [];
-let password = [];
+//FORMULARIO DE INGRESO
 
-let users = JSON.stringify(password);
-localStorage.setItem("user",users);
+let registrado = document.querySelector("#registrado");
+registrado.addEventListener("submit", agregarUsuarios);
+let clave = [];
+let usuario = [];
+function agregarUsuarios (evt) {
+    evt.preventDefault();
+     usuario = document.querySelector("#usuario").value;
+     clave = document.querySelector("#clave").value;
+     localStorage.setItem(usuario,clave);
 
-let contras = JSON.stringify(password);
-localStorage.setItem("contra",contras);
-
-document.querySelector("#sosParte").addEventListener("submit", (event) =>{
-  event.preventDefault();
-  let nombres = document.querySelector("#usuario").value;
-  let contraseñas = document.querySelector("#password").value;
-
-  user.push(nombres);
-  password.push(contraseñas);
-
-  
-  let usuarioDevuelta = JSON.parse(localStorage.getItem("user"));
-  let contraDevuetla = JSON.parse(localStorage.getItem("contra"));
-  for (let i = 0; i <usuarioDevuelta.find; i++){
-      
-  }
- 
-}) */
-
+        if(usuario === "" || clave === ""){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops',
+                text: 'Ingrese todos los campos requeridos',
+                width: "30rem",
+                showConfirmButton: false,
+                timer : 2000
+              })
+        } else{
+            document.querySelector("#registrado").style.display = "none"; 
+            document.querySelector("#titulo").style.display = "block";
+            document.querySelector("#ingreso").style.display = "block";
+            Swal.fire({
+                icon: 'success',
+                title: 'wow',
+                text: 'Ya estas registrado',
+                width: "30rem",
+                showConfirmButton: false,
+                timer : 2000
+            })
+        }
+    }
+    
+   
 
 let ingresar = document.querySelector(".ingresar").addEventListener("click", () => {
     let divLogin = document.querySelector("#login");
@@ -66,7 +76,7 @@ let ingresar = document.querySelector(".ingresar").addEventListener("click", () 
     let usuario = document.querySelector(".usuario").value;
     let contra = document.querySelector(".passw").value;
 
-    if (usuario == "a" && contra == 2) {
+    if (usuario == "a" && contra == 2 ) {
       divLogin.classList.remove("mostrar");
       divLogin.classList.add("esconder");
       formEntrar.classList.remove("esconder");
@@ -100,7 +110,9 @@ let ingresar = document.querySelector(".ingresar").addEventListener("click", () 
     document.querySelector("#vamos").addEventListener("click", () => {
       document.querySelector("#nombre");
       document.querySelector("#rutinas");
+ 
 
+      
       if (usuario == "a" && contra == 2) {
         document.querySelector("#entrar").style.display = "none";
         document.querySelector("#nombre").style.display = "block";
