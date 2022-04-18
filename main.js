@@ -29,7 +29,6 @@ let registrarse = document.querySelector("#registrarse").addEventListener ("clic
   }
 
 
-
 })
 
 //FORMULARIO DE INGRESO
@@ -38,6 +37,8 @@ let registrado = document.querySelector("#registrado");
 registrado.addEventListener("submit", agregarUsuarios);
 let clave = [];
 let usuario = [];
+let usuarioClave = usuario;
+usuarioClave = clave;
 function agregarUsuarios (evt) {
     evt.preventDefault();
      usuario = document.querySelector("#usuario").value;
@@ -67,59 +68,62 @@ function agregarUsuarios (evt) {
             })
         }
     }
-    
-   
 
-let ingresar = document.querySelector(".ingresar").addEventListener("click", () => {
-    let divLogin = document.querySelector("#login");
-    let formEntrar = document.querySelector("#entrar");
-    let usuario = document.querySelector(".usuario").value;
-    let contra = document.querySelector(".passw").value;
 
-    if (usuario == "a" && contra == 2 ) {
-      divLogin.classList.remove("mostrar");
-      divLogin.classList.add("esconder");
-      formEntrar.classList.remove("esconder");
-      formEntrar.classList.add("mostrar");
-      const Toast = Swal.mixin({
-         toast: true,
-         position: 'top-end',
-         showConfirmButton: false,
-         timer: 1000,
-         timerProgressBar: true,
-         didOpen: (toast) => {
-           toast.addEventListener('mouseenter', Swal.stopTimer)
-           toast.addEventListener('mouseleave', Swal.resumeTimer)
-         }
-       })
-       
-       Toast.fire({
-         icon: 'success',
-         title: 'Has ingresado con exito'
-       })
-    } else {
-      Swal.fire({
-         icon: 'error',
-         title: 'Incorrecto',
-         text: 'Contraseña o usuario',
-         width: "30rem",
-         footer: '<a href="">Vuelve a intentarlo!</a>'
-       })
+    class Sesion {
+      constructor(usuario,contra){
+        this.usuario = usuario;
+        this.contra = contra;
+      }
     }
-
-    document.querySelector("#vamos").addEventListener("click", () => {
-      document.querySelector("#nombre");
-      document.querySelector("#rutinas");
- 
-
+    
+    const sesiones = [];
+    
+    document.querySelector("#sosParte").addEventListener('click', ()=> {
+    
+      let usu = document.querySelector("#usuario").value ;
+      let clave = document.querySelector("#clave").value ;
       
-      if (usuario == "a" && contra == 2) {
-        document.querySelector("#entrar").style.display = "none";
+      let s =  new Sesion(usu,clave);
+    
+      sesiones.push(s);
+    
+      localStorage.removeItem('sesiones');
+    
+      localStorage.setItem('sesiones',JSON.stringify(sesiones));
+      
+    })
+    
+    document.querySelector("#vamos").addEventListener('click', ()=> {
+      let usu = document.querySelector("#inputUsu").value ;
+      let clave = document.querySelector("#input").value ;
+    
+      let sesions = JSON.parse(localStorage.getItem('sesiones'));
+      
+      const resultado = sesions.find( x => x.usuario === usu &&  x.contra  === clave);
+      console.log(resultado)
+         
+      if (resultado != undefined) {
+        //INICIA SESION
         document.querySelector("#nombre").style.display = "block";
         document.querySelector("#rutinas").style.display = "block";
         document.querySelector("#titulo2").style.display = "block";
         document.querySelector("#dieta").style.display = "block";
+        document.querySelector("#entrar").style.display = "none";
+  
+      
+      }else{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops',
+          text: 'Usuario o contraseña incorrecta',
+          width: "30rem",
+          showConfirmButton: false,
+          timer : 2000
+        })
       }
+    
+    
 
       const rutinas = [
         { dia: "Lunes", rutina: "Pecho y biceps", ejerciciosNro: 1 },
@@ -176,8 +180,8 @@ let ingresar = document.querySelector(".ingresar").addEventListener("click", () 
      let veganoJson = JSON.stringify(vegano);
      localStorage.setItem("vegano", veganoJson);
 
-    });
-
+    }); 
+ 
 
     let nombre = document.querySelector("#nombre");
     nombre.addEventListener("submit", agregarNombres);
@@ -271,4 +275,4 @@ let ingresar = document.querySelector(".ingresar").addEventListener("click", () 
    
       })
     });
-  });
+  ;
