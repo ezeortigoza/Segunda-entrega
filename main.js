@@ -124,7 +124,7 @@ function agregarUsuarios (evt) {
           timer : 2000
         })
       }
-       document.querySelector("#btn-ejercicio").addEventListener("click", ()=>{
+      /*     document.querySelector("#btn-ejercicio").addEventListener("click", ()=>{
        let list = document.querySelector("#list")
        list.replaceChildren();
        list.style.color = "blue";
@@ -138,10 +138,10 @@ function agregarUsuarios (evt) {
               subList.textContent = `${ejercicios[i].biceps}`
               list.appendChild(subList);
             }
-      }) 
+          }) */    
 
-     /*  document.querySelector("#btn-ejercicio").addEventListener("click", ()=>{
-        let list = document.querySelector("#list")
+      /*  document.querySelector("#btn-ejercicio").addEventListener("click", ()=>{
+        //let list = document.querySelector("#list")
         list.replaceChildren();
         list.style.color = "blue";
          let ejercicios = 'rutinas.json';
@@ -151,22 +151,22 @@ function agregarUsuarios (evt) {
          })
          .then((resJson)=>{
            mostrarHtml(resJson)
-         })
-         .catch((err)=>{
-           console.log(err)
-         })
-
-         function mostrarHtml(obj){
-           const list = document.querySelector("#list")
-           list.innerHTML = `
-              <p>Biceps : ${obj.biceps} </p>
-
-           `
-         }
+          })
+          .catch((err)=>{
+            console.log(err)
+          })
+          function mostrarHtml(obj){
+          const list = document.querySelector("#list")
+          list.innerHTML = `
+             <li>Biceps : ${obj.biceps} </li>
+ 
+          `
+        } 
         
-        }) */
+          
+        })   */
 
-        /* document.querySelector("#btn-ejercicio").addEventListener("click", traerDatos());
+           document.querySelector("#btn-ejercicio").addEventListener("click", traerDatos);
 
         function traerDatos(){
           const ejercicios = new XMLHttpRequest();
@@ -177,20 +177,21 @@ function agregarUsuarios (evt) {
               let datos = JSON.parse(this.responseText)
               //console.log(datos);
               let res = document.querySelector("#list");
-              res.innerHTML = '';
-              
+              res.replaceChildren();
+              res.style.color = "blue";
+              res.textContent = '';
               for(let item of datos){
                 //console.log(item);
-                res.innerHTML += `
-               <ul>
-                  <li>${item.biceps}</li>
-                  <li>${item.triceps}</li>
-              </ul>
+                const rutinas = document.createElement("li");
+                res.textContent += 
+                rutinas.textContent =  `Biceps: ${item.biceps} - Triceps: ${item.triceps} - Espalda: ${item.espalda} - Pecho: ${item.pecho} - 
+                Hombros: ${item.hombros} - Piernas: ${item.piernas} -  Full body: ${item.fullBody}
                 `
               }
+              //res.appendChild(rutinas);
             }
           }         
-        } */
+        }   
 
       const rutinas = [
         { dia: "Lunes", rutina: "Pecho y biceps", ejerciciosNro: 1 },
