@@ -2,8 +2,15 @@
     margin: 0;
     padding: 0;
 }
+body{
+     background-image: url(img/gym.jpg);
+     background-position: cover;
+     background-position: center;
+     background-color: rgb(20, 20, 20);
+     background-blend-mode: soft-light ;
+}
 h1{
-    color: blue;
+    color: white;
     text-align: center;
 }
 .esconder{
@@ -16,8 +23,14 @@ h1{
     margin-top: 10%;
 }
 h2{
-    color: blue;
+    color: white;
 }
 h4{
-    color: blue;
+    color: white;
+}
+.botones{
+    display: flex;
+    display: row;
+    justify-content: space-around;
+    text-align: center;
 }

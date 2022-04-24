@@ -1,11 +1,11 @@
 [
-  {"biceps":"Alternado con mancuerna 4x10, martillo con mancuerna 3x15, banco scoop 4x12"},
-  {"triceps":"Polea alta con soga 4x10, Rompecraneo 3x15, Press frances 4x12"},
-  {"espalda":"Dominadas con lastre 4x12, Serrucho 5x10, Remo con barra 4x15"},
-  {"pecho":"Banco plano 4x12, Banco inclinado 4x12, Cruce de polea 5x15"},
-  {"hombros":"Vuelo lateral 4x10, Press militar 4x12, Press arnold 5x15"},
-  {"piernas":"Sentadillas con salto 4x20, Pistol squat 4x10, Peso muerto 4x15, Gemelos en prensa 5x20"},
- {"fullBody":"Flexiones 4x40 + dominadas 4x15, Prensa 4x12 + camilla de isquios 4x12, Abs inferior + corto 4x50"}
+  {"biceps":"Alternado con mancuerna 4x10, martillo con mancuerna 3x15, banco scoop 4x12",
+  "triceps":"Polea alta con soga 4x10, Rompecraneo 3x15, Press frances 4x12",
+  "espalda":"Dominadas con lastre 4x12, Serrucho 5x10, Remo con barra 4x15",
+  "pecho":"Banco plano 4x12, Banco inclinado 4x12, Cruce de polea 5x15",
+  "hombros":"Vuelo lateral 4x10, Press militar 4x12, Press arnold 5x15",
+  "piernas":"Sentadillas con salto 4x20, Pistol squat 4x10, Peso muerto 4x15, Gemelos en prensa 5x20",
+ "fullBody":"Flexiones 4x40 + dominadas 4x15, Prensa 4x12 + camilla de isquios 4x12, Abs inferior + corto 4x50"}
 
 
 ] 

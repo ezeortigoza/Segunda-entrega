@@ -167,7 +167,6 @@ function agregarUsuarios (evt) {
         })   */
 
            document.querySelector("#btn-ejercicio").addEventListener("click", traerDatos);
-
         function traerDatos(){
           const ejercicios = new XMLHttpRequest();
           ejercicios.open ('GET','rutinas.json',true);
@@ -177,18 +176,20 @@ function agregarUsuarios (evt) {
               let datos = JSON.parse(this.responseText)
               //console.log(datos);
               let res = document.querySelector("#list");
+              document.querySelector("#listaRutinas").style.display = "block";
+              document.querySelector("#list").style.display = "block";
               res.replaceChildren();
               res.style.color = "blue";
               res.textContent = '';
               for(let item of datos){
                 //console.log(item);
-                const rutinas = document.createElement("li");
+                const rutinas = document.createElement("p");
                 res.textContent += 
                 rutinas.textContent =  `Biceps: ${item.biceps} - Triceps: ${item.triceps} - Espalda: ${item.espalda} - Pecho: ${item.pecho} - 
                 Hombros: ${item.hombros} - Piernas: ${item.piernas} -  Full body: ${item.fullBody}
                 `
               }
-              //res.appendChild(rutinas);
+              res.appendChild(rutinas);
             }
           }         
         }   
@@ -270,22 +271,23 @@ function agregarUsuarios (evt) {
       }
 
       document.getElementById("texto").textContent =
-        "Al usuario " + n + apellido + " se le asigno la rutina :";
+        "Al usuario " + n + apellido + " se le asigno las rutinas :";
     }
 
     document.querySelector("#go").addEventListener("click", () => {
       let numero = +document.querySelector("#numero").value;
       document.querySelector("#texto").style.display = "block";
+      document.querySelector(".tarjeta").style.display = "block";
       let myList = document.querySelector("#lista");
       myList.replaceChildren();
-      myList.style.color = "blue";
+      myList.style.color = "white";
       let p = document.querySelector("#texto");
-      p.style.color = "yellow";
+      p.style.color = "white";
       if (numero != 0 && numero <= 7) {
         let rutinaDevuelta = JSON.parse(localStorage.getItem("Rutinas"));
         for (let i = 0; i < rutinaDevuelta.length; i++) {
           if (i < numero) {
-            const subrutina = document.createElement("li");
+            const subrutina = document.createElement("p");
             subrutina.textContent = `${rutinaDevuelta[i].dia} - ${rutinaDevuelta[i].rutina}`;
             myList.appendChild(subrutina);
           }
@@ -303,12 +305,15 @@ function agregarUsuarios (evt) {
       document.querySelector("#omnivoro").addEventListener ("click",() =>{
 
         let miLista = document.querySelector("#listaAlimentos");
+        document.querySelector("#listaAlimentos").style.display = "block";
+        document.querySelector("#texto").style.display = "block";
+        document.querySelector(".tarjeta").style.display = "block";
         miLista.replaceChildren();
         miLista.style.color = "blue";
         let omnivoroDevuelta = JSON.parse(localStorage.getItem("Omnivoro"));
         for (let i = 0; i <omnivoroDevuelta.length ; i++){
-           const subomnivoro = document.createElement("li"); 
-           subomnivoro.textContent = `${omnivoroDevuelta[i].dia} - ${omnivoroDevuelta[i].desayuno} - ${omnivoroDevuelta[i].almuerzo} - ${omnivoroDevuelta[i].cena}`;
+           const subomnivoro = document.createElement("p"); 
+           subomnivoro.textContent = `${omnivoroDevuelta[i].dia} - Desayuno: ${omnivoroDevuelta[i].desayuno} -Almuerzo: ${omnivoroDevuelta[i].almuerzo} - Cena: ${omnivoroDevuelta[i].cena}`;
            miLista.appendChild(subomnivoro);
         }
          
@@ -317,12 +322,15 @@ function agregarUsuarios (evt) {
       document.querySelector("#vegetariano").addEventListener ("click",() =>{
 
         let miLista = document.querySelector("#listaAlimentos");
+        document.querySelector("#listaAlimentos").style.display = "block";
+        document.querySelector("#texto").style.display = "block";
+        document.querySelector(".tarjeta").style.display = "block";
         miLista.replaceChildren();
         miLista.style.color = "blue";
         let vegetarianoDevuelta = JSON.parse(localStorage.getItem("vegetariano"));
         for (let i = 0; i <vegetarianoDevuelta.length ; i++){
-           const subVegetariano = document.createElement("li"); 
-           subVegetariano.textContent = `${vegetarianoDevuelta[i].dia} - ${vegetarianoDevuelta[i].desayuno} - ${vegetarianoDevuelta[i].almuerzo} - ${vegetarianoDevuelta[i].cena}`;
+           const subVegetariano = document.createElement("p"); 
+           subVegetariano.textContent = `${vegetarianoDevuelta[i].dia} - Desayuno: ${vegetarianoDevuelta[i].desayuno} - Almuerzo: ${vegetarianoDevuelta[i].almuerzo} - Cena: ${vegetarianoDevuelta[i].cena}`;
            miLista.appendChild(subVegetariano);
         }
          
@@ -331,12 +339,15 @@ function agregarUsuarios (evt) {
       document.querySelector("#vegano").addEventListener ("click",() =>{
 
         let miLista = document.querySelector("#listaAlimentos");
+        document.querySelector("#listaAlimentos").style.display = "block";
+        document.querySelector("#texto").style.display = "block";
+        document.querySelector(".tarjeta").style.display = "block";
         miLista.replaceChildren();
         miLista.style.color = "blue";
         let veganoDevuelta = JSON.parse(localStorage.getItem("vegano"));
         for (let i = 0; i <veganoDevuelta.length ; i++){
-           const subVegano = document.createElement("li"); 
-           subVegano.textContent = `${veganoDevuelta[i].dia} - ${veganoDevuelta[i].desayuno} - ${veganoDevuelta[i].almuerzo} - ${veganoDevuelta[i].cena}`;
+           const subVegano = document.createElement("p"); 
+           subVegano.textContent = `${veganoDevuelta[i].dia} - Desayuno: ${veganoDevuelta[i].desayuno} - Almuerzo: ${veganoDevuelta[i].almuerzo} - Cena: ${veganoDevuelta[i].cena}`;
            miLista.appendChild(subVegano);
         }
          
