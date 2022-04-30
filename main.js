@@ -11,7 +11,7 @@
       document.querySelector("#mes").style.color = "#546E7A";
       document.querySelector("#alimentos").style.color = "#546E7A";
 
-    }, 10000);
+    }, 18000);
   } 
  
   function refrescarPagina(e){
@@ -215,13 +215,13 @@ function agregarUsuarios (evt) {
 
       const omnivoro = [
             
-         { dia: "Lunes", desayuno: "Huevo revuelto" , almuerzo: "Carne"  , cena: "Pollo"},
-         { dia: "Martes", desayuno:"Pescado" , almuerzo: "Ensalada" , cena: "Tortilla de papa"},
-         { dia: "Miercoles", desayuno:"Yogurt" , almuerzo:"Lentejas"  , cena: "Milanesa"},
-         { dia: "Jueves", desayuno:"Yogurt" , almuerzo: "Garbanzos" , cena: "Polllo al horno"},
-         { dia: "Viernes", desayuno: "Tostadas" , almuerzo: "Pechuga de pollo" , cena: "Zapallito"},
-         { dia: "Sabado", desayuno: "Huevo revuelto", almuerzo: "Tarta de atun"  , cena:"Tarta de jyq"},
-         { dia: "Domingo", desayuno:"Yogurt" , almuerzo: "Tarta de espinaca" , cena:"Pollo"},
+         { dia: "Lunes", desayuno: "Huevo revuelto",  almuerzo: "Carne" , merienda: "Licuado de banana",  cena: "Pollo"},
+         { dia: "Martes", desayuno:"Pescado" ,  almuerzo: "Ensalada" , merienda: "Licuado de banana", cena: "Tortilla de papa"},
+         { dia: "Miercoles", desayuno:"Yogurt"  , almuerzo:"Lentejas" , merienda: "Tostadas con queso port salut"  , cena: "Milanesa"},
+         { dia: "Jueves", desayuno:"Yogurt" , almuerzo: "Garbanzos" , merienda: "Tostadas con queso port salut" , cena: "Polllo al horno"},
+         { dia: "Viernes", desayuno: "Tostadas" , almuerzo: "Pechuga de pollo" ,merienda: "Huevo revuelto con jugo de naranja" , cena: "Zapallito"},
+         { dia: "Sabado", desayuno: "Huevo revuelto", almuerzo: "Tarta de atun" , merienda: "Huevo revuelto con jugo de naranja"  , cena:"Tarta de jyq"},
+         { dia: "Domingo", desayuno:"Yogurt" , almuerzo: "Tarta de espinaca" , merienda: "Pan integral con palta" , cena:"Pollo"},
          
       ]
          let omnivoroJson = JSON.stringify(omnivoro);
@@ -229,13 +229,13 @@ function agregarUsuarios (evt) {
 
          const vegetariano = [
             
-          { dia: "Lunes", desayuno: "Huevo revuelto" , almuerzo: "Lentejas"  , cena: "Ensalada con milanesa de soja"},
-          { dia: "Martes", desayuno:"Yogurt con avena" , almuerzo: "Hamburguesa de quinoa" , cena: "Brocoli con milanesa de soja"},
-          { dia: "Miercoles", desayuno:"Tostadas con palta" , almuerzo:"Omelette con arroz "  , cena: "Hamburguesa con tufu"},
-          { dia: "Jueves", desayuno:"Omelette y jugo de naranja" , almuerzo: "Tarta de espinaca" , cena: "Tarta de zapallito"},
-          { dia: "Viernes", desayuno: "Yogurt con avena" , almuerzo: "Hamburguesas de garbanzos" , cena: "Ensalada con milanesa de soja"},
-          { dia: "Sabado", desayuno: "Huevo revuelto", almuerzo: "Milanesa de berenjena"  , cena:"Brocoli con milanesa de soja"},
-          { dia: "Domingo", desayuno:"Yogurt con avena" , almuerzo: "Tarta de espinaca" , cena:"Ensalada"},
+          { dia: "Lunes", desayuno: "Huevo revuelto"  , almuerzo: "Lentejas" , merienda: "Pan integral con palta" , cena: "Ensalada con milanesa de soja"},
+          { dia: "Martes", desayuno:"Yogurt con avena" , almuerzo: "Hamburguesa de quinoa" , merienda: "Pan integral con palta" , cena: "Brocoli con milanesa de soja"},
+          { dia: "Miercoles", desayuno:"Tostadas con palta" , almuerzo:"Omelette con arroz "  ,merienda: "Huevo revuelto con avena" , cena: "Hamburguesa con tufu"},
+          { dia: "Jueves", desayuno:"Omelette y jugo de naranja" , almuerzo: "Tarta de espinaca", merienda: "Huevo revuelto con avena"  , cena: "Tarta de zapallito"},
+          { dia: "Viernes", desayuno: "Yogurt con avena"  , almuerzo: "Hamburguesas de garbanzos" , merienda: "Huevo revuelto con jugo de naranja" , cena: "Ensalada con milanesa de soja"},
+          { dia: "Sabado", desayuno: "Huevo revuelto", almuerzo: "Milanesa de berenjena" , merienda: "Yogurt natural y avena" , cena:"Brocoli con milanesa de soja"},
+          { dia: "Domingo", desayuno:"Yogurt con avena" , almuerzo: "Tarta de espinaca", merienda: "Yogurt natural y avena" , cena:"Ensalada"},
           
        ]
        let vegetarianoJson = JSON.stringify(vegetariano);
@@ -243,13 +243,13 @@ function agregarUsuarios (evt) {
 
        const vegano = [
             
-        { dia: "Lunes", desayuno: "Frutos secos mas jugo de naranja" , almuerzo: "Lentejas"  , cena: "Ensalada con milanesa de soja"},
-        { dia: "Martes", desayuno:"Jugo de naranja y avena" , almuerzo: "Hamburguesa de quinoa" , cena: "Brocoli con milanesa de soja"},
-        { dia: "Miercoles", desayuno:"Tostadas con palta" , almuerzo:"Arroz y lentejas "  , cena: "Hamburguesa con tufu"},
-        { dia: "Jueves", desayuno:"Tostadas con palta y banana" , almuerzo: "Tarta de espinaca" , cena: "Tarta de zapallito"},
-        { dia: "Viernes", desayuno: "Jugo de soja con avena" , almuerzo: "Hamburguesas de garbanzos" , cena: "Ensalada con milanesa de soja"},
-        { dia: "Sabado", desayuno: "Jugo de soja con avena", almuerzo: "Milanesa de berenjena"  , cena:"Brocoli con milanesa de soja"},
-        { dia: "Domingo", desayuno:"Tostadas con palta" , almuerzo: "Tarta de espinaca" , cena:"Ensalada"},
+        { dia: "Lunes", desayuno: "Frutos secos mas jugo de naranja", almuerzo: "Lentejas" , merienda: "Pan integral con palta"  , cena: "Ensalada con milanesa de soja"},
+        { dia: "Martes", desayuno:"Jugo de naranja y avena" , almuerzo: "Hamburguesa de quinoa", merienda: "Pan integral con palta"  , cena: "Brocoli con milanesa de soja"},
+        { dia: "Miercoles", desayuno:"Tostadas con palta" , almuerzo:"Arroz y lentejas " , merienda: "Pan integral con frutos secos + miel"  , cena: "Hamburguesa con tufu"},
+        { dia: "Jueves", desayuno:"Tostadas con palta y banana" , almuerzo: "Tarta de espinaca" , merienda: "Pan integral con frutos secos + miel"   , cena: "Tarta de zapallito"},
+        { dia: "Viernes", desayuno: "Jugo de soja con avena" , almuerzo: "Hamburguesas de garbanzos" , merienda: "Jugo ades con frutos secos"  , cena: "Ensalada con milanesa de soja"},
+        { dia: "Sabado", desayuno: "Jugo de soja con avena", almuerzo: "Milanesa de berenjena" , merienda: "Jugo ades con frutos secos" , cena:"Brocoli con milanesa de soja"},
+        { dia: "Domingo", desayuno:"Tostadas con palta" , almuerzo: "Tarta de espinaca", merienda: "Licuado de frutilla (con agua) + frutos secos  " , cena:"Ensalada"},
         
      ]
      let veganoJson = JSON.stringify(vegano);
@@ -322,7 +322,7 @@ function agregarUsuarios (evt) {
         let omnivoroDevuelta = JSON.parse(localStorage.getItem("Omnivoro"));
         for (let i = 0; i <omnivoroDevuelta.length ; i++){
            const subomnivoro = document.createElement("p"); 
-           subomnivoro.textContent = `${omnivoroDevuelta[i].dia} - Desayuno: ${omnivoroDevuelta[i].desayuno} -Almuerzo: ${omnivoroDevuelta[i].almuerzo} - Cena: ${omnivoroDevuelta[i].cena}`;
+           subomnivoro.textContent = `${omnivoroDevuelta[i].dia} - Desayuno: ${omnivoroDevuelta[i].desayuno} -Almuerzo: ${omnivoroDevuelta[i].almuerzo}- Merienda: ${omnivoroDevuelta[i].merienda} - Cena: ${omnivoroDevuelta[i].cena}`;
            miLista.appendChild(subomnivoro);
         }
          
@@ -338,7 +338,7 @@ function agregarUsuarios (evt) {
         let vegetarianoDevuelta = JSON.parse(localStorage.getItem("vegetariano"));
         for (let i = 0; i <vegetarianoDevuelta.length ; i++){
            const subVegetariano = document.createElement("p"); 
-           subVegetariano.textContent = `${vegetarianoDevuelta[i].dia} - Desayuno: ${vegetarianoDevuelta[i].desayuno} - Almuerzo: ${vegetarianoDevuelta[i].almuerzo} - Cena: ${vegetarianoDevuelta[i].cena}`;
+           subVegetariano.textContent = `${vegetarianoDevuelta[i].dia} - Desayuno: ${vegetarianoDevuelta[i].desayuno} - Almuerzo: ${vegetarianoDevuelta[i].almuerzo} - Merienda: ${vegetarianoDevuelta[i].merienda} - Cena: ${vegetarianoDevuelta[i].cena}`;
            miLista.appendChild(subVegetariano);
         }
          
@@ -355,7 +355,7 @@ function agregarUsuarios (evt) {
         for (let i = 0; i <veganoDevuelta.length ; i++){
            const subVegano = document.createElement("p"); 
            subVegano.style.color = "white";
-           subVegano.innerHTML = `${veganoDevuelta[i].dia} -   Desayuno: ${veganoDevuelta[i].desayuno} - Almuerzo: ${veganoDevuelta[i].almuerzo} - Cena: ${veganoDevuelta[i].cena}`;
+           subVegano.innerHTML = `${veganoDevuelta[i].dia} -   Desayuno: ${veganoDevuelta[i].desayuno} - Almuerzo: ${veganoDevuelta[i].almuerzo} - Merienda: ${veganoDevuelta[i].merienda} - Cena: ${veganoDevuelta[i].cena}`;
            miLista.appendChild(subVegano);
         }
          
