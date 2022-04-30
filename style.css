@@ -9,6 +9,9 @@ body{
      background-color: rgb(20, 20, 20);
      background-blend-mode: soft-light ;
 }
+.btn-refresh{
+    line-height: 55px;
+}
 h1{
     color: white;
     text-align: center;
@@ -34,3 +37,11 @@ h4{
     justify-content: space-around;
     text-align: center;
 }
+ 
+.click{
+    margin-top: 400px;
+}
+h5{
+    color: blue;
+}
+

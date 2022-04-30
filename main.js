@@ -1,4 +1,26 @@
-document.querySelector("#ingreso").addEventListener("click", () => {
+     input.minlength = 3
+ 
+ /*   window.onload = () =>{
+    setTimeout (()=>{
+      document.getElementsByTagName("body")[0].style.backgroundColor = "black";
+    }, 3000);
+  } */
+ 
+  function refrescarPagina(e){
+    //let numero = document.querySelector("#numero");
+     let btnEjercicio = document.querySelector("#btn-ejercicio");
+    let botones = document.querySelector("#botones");
+    
+    if (btnEjercicio == "block" && botones == "block"){
+      e.preventDefault();
+      btnEjercicio.style.display = "none";
+      botones.style.display = "none";
+    } 
+    location.reload();
+  }
+
+  document.querySelector("#btn-refresh").style.display = "none";
+  document.querySelector("#ingreso").addEventListener("click", () => {
   let formEntrar = document.querySelector("#entrar");
   let divLogin = document.querySelector("#login");
   if (divLogin != formEntrar) {
@@ -6,6 +28,8 @@ document.querySelector("#ingreso").addEventListener("click", () => {
     document.querySelector("#ingreso").style.display = "none";
     document.querySelector("#registrarse").style.display = "none";
     document.querySelector("#titulo").style.display = "none";
+    document.querySelector("#btn-refresh").style.display = "none";
+
 
     document.querySelector("#entrar").style.display = "none";
     document.querySelector("#entrar").style.display = "block";
@@ -111,8 +135,18 @@ function agregarUsuarios (evt) {
         document.querySelector("#dieta").style.display = "block";
         document.querySelector("#entrar").style.display = "none";
         document.querySelector("#ejercicios").style.display = "block";
+        document.querySelector("#btn-refresh").style.display = "block";
+
        
-  
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Has ingresado con exito',
+          showConfirmButton: false,
+          timer: 1700,
+          width: "25rem",
+          height: "5rem"
+        })
       
       }else{
         Swal.fire({
@@ -124,78 +158,46 @@ function agregarUsuarios (evt) {
           timer : 2000
         })
       }
-      /*     document.querySelector("#btn-ejercicio").addEventListener("click", ()=>{
-       let list = document.querySelector("#list")
-       list.replaceChildren();
-       list.style.color = "blue";
-        let ejercicios = 'rutinas.json';
-        fetch(ejercicios)
-            .then(Response => Response.json())
-            .then( data => console.log(data))
-            .catch(error => console.log(error))
-            for(i=0; i< ejercicios.length; i++){
-              const subList = document.createElement("li");
-              subList.textContent = `${ejercicios[i].biceps}`
-              list.appendChild(subList);
-            }
-          }) */    
+      
 
-      /*  document.querySelector("#btn-ejercicio").addEventListener("click", ()=>{
-        //let list = document.querySelector("#list")
-        list.replaceChildren();
-        list.style.color = "blue";
-         let ejercicios = 'rutinas.json';
+         document.querySelector("#btn-ejercicio").addEventListener("click", ()=>{
+         document.querySelector("#listaRutinas").style.display = "block";
+         document.querySelector("#escondido").style.display = "none";
+         list.replaceChildren();
+         list.style.color = "white";
+         let ejercicios =  "rutinas.json"
          fetch(ejercicios)
          .then((res)=>{
-           return res.json()
+           console.log(res)
+            return res.json()
+         
          })
-         .then((resJson)=>{
-           mostrarHtml(resJson)
-          })
+          .then((resJson)=>{
+            mostrarHtml(resJson)
+          })  
           .catch((err)=>{
             console.log(err)
           })
-          function mostrarHtml(obj){
-          const list = document.querySelector("#list")
-          list.innerHTML = `
-             <li>Biceps : ${obj.biceps} </li>
- 
-          `
-        } 
-        
-          
-        })   */
 
-           document.querySelector("#btn-ejercicio").addEventListener("click", traerDatos);
-        function traerDatos(){
-          const ejercicios = new XMLHttpRequest();
-          ejercicios.open ('GET','rutinas.json',true);
-          ejercicios.send();
-          ejercicios.onreadystatechange = function(){
-            if(this.readyState == 4 && this.status == 200){
-              let datos = JSON.parse(this.responseText)
-              //console.log(datos);
-              let res = document.querySelector("#list");
-              document.querySelector("#listaRutinas").style.display = "block";
-              document.querySelector("#list").style.display = "block";
-              res.replaceChildren();
-              res.style.color = "blue";
-              res.textContent = '';
-              for(let item of datos){
-                //console.log(item);
-                const rutinas = document.createElement("p");
-                res.textContent += 
-                rutinas.textContent =  `Biceps: ${item.biceps} - Triceps: ${item.triceps} - Espalda: ${item.espalda} - Pecho: ${item.pecho} - 
-                Hombros: ${item.hombros} - Piernas: ${item.piernas} -  Full body: ${item.fullBody}
-                `
-              }
-              res.appendChild(rutinas);
-            }
-          }         
-        }   
+          function mostrarHtml (obj){
+          let list = document.querySelector("#list")
+          let rutinas = document.createElement("p");
+          rutinas.style.color = "white";
+          list.textContent += ""
+          rutinas.innerHTML = `
+             <h5>Biceps :</h5>${obj.biceps}  -  <h5>Triceps :</h5> ${obj.triceps} -  <h5>Espalda :</h5> ${obj.espalda} -  <h5>Pecho :</h5> ${obj.pecho} -  <h5>Hombros :</h5> ${obj.hombros}
+             <h5>Piernas :</h5> ${obj.piernas} -  <h5>Full body :</h5> ${obj.fullBody}
+          `
+          list.appendChild(rutinas);
+        } 
+      
+          
+        })      
+
+      
 
       const rutinas = [
-        { dia: "Lunes", rutina: "Pecho y biceps", ejerciciosNro: 1 },
+        { dia:  "Lunes", rutina: "Pecho y biceps", ejerciciosNro: 1 },
         { dia: "Martes", rutina: "Espalda y triceps", ejerciciosNro: 2 },
         { dia: "Miercoles", rutina: "Piernas y hombro", ejerciciosNro: 3 },
         { dia: "Jueves", rutina: "Empuje", ejerciciosNro: 4 },
@@ -259,7 +261,7 @@ function agregarUsuarios (evt) {
       const n = document.querySelector(".n").value;
       const apellido = document.querySelector("#apellido").value;
       localStorage.setItem(apellido, n);
-
+      nombre.reset();
       if (n != "" && apellido != "") {
       } else {
          Swal.fire({
@@ -270,14 +272,12 @@ function agregarUsuarios (evt) {
           })
       }
 
-      document.getElementById("texto").textContent =
+       document.getElementById("texto").textContent =
         "Al usuario " + n + apellido + " se le asigno las rutinas :";
     }
 
     document.querySelector("#go").addEventListener("click", () => {
       let numero = +document.querySelector("#numero").value;
-      document.querySelector("#texto").style.display = "block";
-      document.querySelector(".tarjeta").style.display = "block";
       let myList = document.querySelector("#lista");
       myList.replaceChildren();
       myList.style.color = "white";
@@ -287,11 +287,17 @@ function agregarUsuarios (evt) {
         let rutinaDevuelta = JSON.parse(localStorage.getItem("Rutinas"));
         for (let i = 0; i < rutinaDevuelta.length; i++) {
           if (i < numero) {
+            document.querySelector("#texto").style.display = "block";
+            document.querySelector(".tarjeta").style.display = "block";
+            document.querySelector("#rutinas").style.display = "none";
+            document.querySelector(".title").style.display = "block";
             const subrutina = document.createElement("p");
             subrutina.textContent = `${rutinaDevuelta[i].dia} - ${rutinaDevuelta[i].rutina}`;
             myList.appendChild(subrutina);
+           
           }
         }
+        //srutinas.reset();
       } else {
          Swal.fire({
             icon: 'warning',
@@ -347,7 +353,8 @@ function agregarUsuarios (evt) {
         let veganoDevuelta = JSON.parse(localStorage.getItem("vegano"));
         for (let i = 0; i <veganoDevuelta.length ; i++){
            const subVegano = document.createElement("p"); 
-           subVegano.textContent = `${veganoDevuelta[i].dia} - Desayuno: ${veganoDevuelta[i].desayuno} - Almuerzo: ${veganoDevuelta[i].almuerzo} - Cena: ${veganoDevuelta[i].cena}`;
+           subVegano.style.color = "white";
+           subVegano.innerHTML = `${veganoDevuelta[i].dia} -   Desayuno: ${veganoDevuelta[i].desayuno} - Almuerzo: ${veganoDevuelta[i].almuerzo} - Cena: ${veganoDevuelta[i].cena}`;
            miLista.appendChild(subVegano);
         }
          

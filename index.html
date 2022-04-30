@@ -10,6 +10,9 @@
 </head>
 <body>
  <header>
+     <div class="d-grid gap-2 d-md-flex justify-content-md-end fixed-top"  >
+          <button class="btn btn-primary me-md-2 " id="btn-refresh" onclick="refrescarPagina();" >Refresh</button>
+     </div>
      <div id="login" class="d-grid gap-2 col-6 mx-auto mostrar centrado">
            <h1 class="my-5" id="titulo">Bienvenido hoy te asignaremos la rutina del gym</h1>
            <button id="ingreso" type="button" class="btn btn-primary">Iniciar sesion</button>
@@ -19,34 +22,36 @@
      <form class="esconder" id="registrado">
         <h2 id="titulo3" class=" text-center " >Buenas voy a pedir que te registres!</h2>
          <div class="mb-3" id="formBox">
-           <input type="text" id="usuario" class="d-grid gap-2 col-2 mx-auto my-3" placeholder="Ingrese su usuario" >
+           <input type="text" id="usuario" class="d-grid gap-2 col-2 mx-auto my-3" placeholder="Ingrese su usuario" minlength="3" >
         </div>
         <div class="mb-3 " id="formBox" >
-           <input type="password" id="clave" class="d-grid gap-2 col-2 mx-auto my-3" placeholder="Ingrese su contraseña" >
-       </div> 
+           <input type="password" id="clave" class="d-grid gap-2 col-2 mx-auto my-3" placeholder="Ingrese su contraseña" minlength="3" >
+       </div>  
         <button type="submit" id="sosParte" class="btn btn-primary d-grid gap-2 col-2 mx-auto ">Enviar</button>
       </form>
+      
      
          
          <div id="entrar" class="esconder">
              <h2 class="text-center  ">Solicito que ingreses tu usuario y contraseña</h2>
-            <input type="text" class="usuario d-grid gap-2 col-2 mx-auto my-5" id="inputUsu" placeholder="Ingrese su usuario" >
-            <input type="password" class="passw d-grid gap-2 col-2 mx-auto my-5" id="input" placeholder="Ingrese su contraseña">
+            <input type="text" class="usuario d-grid gap-2 col-2 mx-auto my-5" id="inputUsu" placeholder="Ingrese su usuario" minlength="3" >
+            <input type="password" class="passw d-grid gap-2 col-2 mx-auto my-5" id="input" placeholder="Ingrese su contraseña" minlength="3">
             <button id="vamos" type="button" class="btn btn-primary ingresar d-grid gap-2 col-2 mx-auto my-5">Ingresar</button>
        </div>
 </header>
        <section>
             <h2 id="titulo2" class="esconder text-center " >Buenas voy a pedirte que ingreses tu nombre y apellido</h2>
-            <form  action="" id="nombre" class="esconder"> 
+            <form  action="" id="nombre"  class="esconder"> 
                 <input type="text" class="n d-grid gap-2 col-2 mx-auto my-5" placeholder="Ingrese su nombre"> 
                 <input type="text" id="apellido" class="d-grid gap-2 col-2 mx-auto my-5" placeholder="Ingrese su apellido">
-                <button type="submit" id="boton"  class="btn btn-primary d-grid gap-2 col-2 mx-auto">Agregar</button>
+                <button type="submit" id="boton"  class="btn btn-primary d-grid gap-2 col-2 mx-auto my-5">Agregar</button>
             </form> 
 
-           <div id="rutinas" class="esconder">
-              <h2 class="text-center centrado">Ingrese cuantas veces a la semana desea entrenar, en base a eso te daremos las rutinas</h2>
-              <input id="numero" type="text" class="d-grid gap-2 col-2 mx-auto" placeholder="Ingrese un numero">
-              <button id="go" type="button"  class="btn btn-primary d-grid gap-2 col-2 mx-auto my-3">GO</button>
+            <div id="rutinas" class="esconder">
+              <h2 class="text-center centrado title">Ingrese cuantas veces a la semana desea entrenar, en base a eso te daremos las rutinas</h2>
+              <input id="numero" type="text" form="nombre" class="d-grid gap-2 col-2 mx-auto" placeholder="Ingrese un numero">
+              <button id="go" type="button"  class="btn btn-primary d-grid gap-2 col-2 mx-auto my-5">GO</button>
+         </div>
            <div class="card text-white bg-dark mb-3 tarjeta esconder mx-auto" style="max-width: 20rem;">
                 <div id="texto"   class="card-header esconder ">Ingrese su nombre y apellido :</div>
                 <div class="card-body">
@@ -56,7 +61,9 @@
 
         <div class="esconder" id="ejercicios">
             <h2 class="text-center centrado my-5" >Te dejamos los ejercicios que te tocarian por este mes</h2>
+         <div id="escondido">
             <button id="btn-ejercicio" type="button"  class="btn btn-primary d-grid gap-2 col-2 mx-auto my-5">Ejercicios</button>
+         </div>
               <div class="card text-white bg-dark mb-3 tarjeta esconder mx-auto" id="listaRutinas"  style="max-width: 30rem;">
                 <div class="card-body">
                      <ul  id="list" ></ul>
@@ -82,7 +89,7 @@
             </article>
 
 
-       </section>
+    </section>
 
 
 <script src="main.js"></script>
