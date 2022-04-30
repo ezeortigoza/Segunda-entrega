@@ -10,9 +10,6 @@
 </head>
 <body>
  <header>
-     <div class="d-grid gap-2 d-md-flex justify-content-md-end fixed-top"  >
-          <button class="btn btn-primary me-md-2 " id="btn-refresh" onclick="refrescarPagina();" >Refresh</button>
-     </div>
      <div id="login" class="d-grid gap-2 col-6 mx-auto mostrar centrado">
            <h1 class="my-5" id="titulo">Bienvenido hoy te asignaremos la rutina del gym</h1>
            <button id="ingreso" type="button" class="btn btn-primary">Iniciar sesion</button>
@@ -33,14 +30,15 @@
      
          
          <div id="entrar" class="esconder">
-             <h2 class="text-center  ">Solicito que ingreses tu usuario y contraseña</h2>
+             <h2 class="text-center entrar ">Solicito que ingreses tu usuario y contraseña</h2>
             <input type="text" class="usuario d-grid gap-2 col-2 mx-auto my-5" id="inputUsu" placeholder="Ingrese su usuario" minlength="3" >
             <input type="password" class="passw d-grid gap-2 col-2 mx-auto my-5" id="input" placeholder="Ingrese su contraseña" minlength="3">
             <button id="vamos" type="button" class="btn btn-primary ingresar d-grid gap-2 col-2 mx-auto my-5">Ingresar</button>
        </div>
 </header>
        <section>
-            <h2 id="titulo2" class="esconder text-center " >Buenas voy a pedirte que ingreses tu nombre y apellido</h2>
+            <h1 class="esconder " id="fit" onclick="refrescarPagina();" >RUTINAS FIT</h1>
+            <h2 id="titulo2" class="esconder text-center my-5 " >Buenas voy a pedirte que ingreses tu nombre y apellido</h2>
             <form  action="" id="nombre"  class="esconder"> 
                 <input type="text" class="n d-grid gap-2 col-2 mx-auto my-5" placeholder="Ingrese su nombre"> 
                 <input type="text" id="apellido" class="d-grid gap-2 col-2 mx-auto my-5" placeholder="Ingrese su apellido">
@@ -60,7 +58,7 @@
            </div>
 
         <div class="esconder" id="ejercicios">
-            <h2 class="text-center centrado my-5" >Te dejamos los ejercicios que te tocarian por este mes</h2>
+            <h2 class="text-center centrado my-5" id="mes" >Te dejamos los ejercicios que te tocarian por este mes</h2>
          <div id="escondido">
             <button id="btn-ejercicio" type="button"  class="btn btn-primary d-grid gap-2 col-2 mx-auto my-5">Ejercicios</button>
          </div>

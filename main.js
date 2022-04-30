@@ -1,10 +1,18 @@
      input.minlength = 3
  
- /*   window.onload = () =>{
+    window.onload = () =>{
     setTimeout (()=>{
-      document.getElementsByTagName("body")[0].style.backgroundColor = "black";
-    }, 3000);
-  } */
+      document.getElementsByTagName("body")[0].style.background = "#111013"
+      document.querySelector("#titulo2").style.color = "#546E7A";
+      document.querySelector("#titulo").style.color = "blue";
+      document.querySelector("#titulo3").style.color = "blue";
+      document.querySelector(".entrar").style.color = "blue";
+      document.querySelector(".title").style.color = "#546E7A";
+      document.querySelector("#mes").style.color = "#546E7A";
+      document.querySelector("#alimentos").style.color = "#546E7A";
+
+    }, 10000);
+  } 
  
   function refrescarPagina(e){
     //let numero = document.querySelector("#numero");
@@ -18,8 +26,6 @@
     } 
     location.reload();
   }
-
-  document.querySelector("#btn-refresh").style.display = "none";
   document.querySelector("#ingreso").addEventListener("click", () => {
   let formEntrar = document.querySelector("#entrar");
   let divLogin = document.querySelector("#login");
@@ -28,7 +34,6 @@
     document.querySelector("#ingreso").style.display = "none";
     document.querySelector("#registrarse").style.display = "none";
     document.querySelector("#titulo").style.display = "none";
-    document.querySelector("#btn-refresh").style.display = "none";
 
 
     document.querySelector("#entrar").style.display = "none";
@@ -131,13 +136,12 @@ function agregarUsuarios (evt) {
         //INICIA SESION
         document.querySelector("#nombre").style.display = "block";
         document.querySelector("#rutinas").style.display = "block";
+        document.querySelector("#fit").style.display = "block";
         document.querySelector("#titulo2").style.display = "block";
         document.querySelector("#dieta").style.display = "block";
         document.querySelector("#entrar").style.display = "none";
         document.querySelector("#ejercicios").style.display = "block";
-        document.querySelector("#btn-refresh").style.display = "block";
 
-       
         Swal.fire({
           position: 'top-end',
           icon: 'success',
@@ -309,7 +313,6 @@ function agregarUsuarios (evt) {
       
       
       document.querySelector("#omnivoro").addEventListener ("click",() =>{
-
         let miLista = document.querySelector("#listaAlimentos");
         document.querySelector("#listaAlimentos").style.display = "block";
         document.querySelector("#texto").style.display = "block";
@@ -326,7 +329,6 @@ function agregarUsuarios (evt) {
    
       })
       document.querySelector("#vegetariano").addEventListener ("click",() =>{
-
         let miLista = document.querySelector("#listaAlimentos");
         document.querySelector("#listaAlimentos").style.display = "block";
         document.querySelector("#texto").style.display = "block";
@@ -343,7 +345,6 @@ function agregarUsuarios (evt) {
    
       })
       document.querySelector("#vegano").addEventListener ("click",() =>{
-
         let miLista = document.querySelector("#listaAlimentos");
         document.querySelector("#listaAlimentos").style.display = "block";
         document.querySelector("#texto").style.display = "block";
@@ -358,7 +359,9 @@ function agregarUsuarios (evt) {
            miLista.appendChild(subVegano);
         }
          
-   
+        
       })
+      
     });
+    
   ;
