@@ -185,12 +185,12 @@ function agregarUsuarios (evt) {
           let list = document.querySelector("#list")
           let rutinas = document.createElement("p");
           rutinas.style.color = "white";
-          list.textContent += ""
+          list.innerHTML+= ""
           rutinas.innerHTML = `
              <h5>Biceps :</h5>${obj.biceps}  -  <h5>Triceps :</h5> ${obj.triceps} -  <h5>Espalda :</h5> ${obj.espalda} -  <h5>Pecho :</h5> ${obj.pecho} -  <h5>Hombros :</h5> ${obj.hombros}
              <h5>Piernas :</h5> ${obj.piernas} -  <h5>Full body :</h5> ${obj.fullBody}
-          `
-          list.appendChild(rutinas);
+             `
+             list.appendChild(rutinas);
         } 
       
           
