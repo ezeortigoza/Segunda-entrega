@@ -176,9 +176,7 @@ function agregarUsuarios (evt) {
             return res.json()
          
          })
-          .then((resJson)=>{
-            mostrarHtml(resJson)
-          })  
+          .then( resJson => mostrarHtml(resJson))  
           .catch((err)=>{
             console.log(err)
           })
